@@ -34,3 +34,65 @@
 | this is ''italic'' text | this is <i>italic</i> text |
 | this is '''bold''' text | this is <b>bold</b> text |
 | there have ''italic'' text and '''bold''' text | there have <i>italic</i> text and <b>bold</b> text |
+
+!2 声明一个带输出参数的 Scenario Table
+!| scenario | widget _ renders _ code _| wikiText,htmlText,responseCode? |
+| create page | WidgetPage | with content | @wikiText |
+| $responseCode= | request page | WidgetPage |
+| ensure | content matches | @htmlText |
+| show | content |
+
+!2 从Decision Table 中调用带参数的Scenario Table
+
+!| widget renders code|
+| wiki text | html text | response code? |
+| this is ''italic'' text | this is <i>italic</i> text | 200 |
+| this is '''bold''' text | this is <b>bold</b> text | 200 |
+| there have ''italic'' text and '''bold''' text | there have <i>italic</i> text and <b>bold</b> text | 200 |
+
+!2 使用构造器参数的 Scenario Table
+语法是 Scenario Name - [given|having|...(空也行)] - var1 name - var1 value - ...
+!| widget renders code| given | wiki text | this is ''italic'' text | html text | this is <i>italic</i> text |
+| response code? |
+| 200 |
+
+!2 从 Script Table 中调用 Scenario Table
+| script |
+| widget | this is ''italic'' text | renders | this is <i>italic</i> text |
+
+!2 嵌套调用 Scenario Table
+| scenario | show values _ | a,b,c |
+| note | a = @a |
+| note | b = @b |
+| note | c = @c |
+
+| scenario | execute this _ | a,b,c |
+| show values; | @a | @b | @c |
+
+在 script table 中调用
+| script |
+| execute this; | 1 | 2 | 2 |
+
+在 decision table 中调用
+| execute this |
+| a | b | c |
+| 1 | 2 | 2 |
+
+!2 嵌套调用 Scenario Table
+!| scenario | make page with _ | pageName,wikiText |
+| create page | @pageName | with content | @wikiText |
+| check | request page | @pageName | 200 |
+
+!| scenario | page renders _ | wikiText,htmlText |
+| make page with; | MyPage | @wikiText |
+| ensure | content matches | @htmlText |
+| show | content |
+
+在 script table 中调用
+!| script |
+| page renders; | this is ''italic'' text | this is <i>italic</i> text |
+
+在 decision table 中调用
+| page renders |
+| wikiText | htmlText |
+| this is ''italic'' text | this is <i>italic</i> text |

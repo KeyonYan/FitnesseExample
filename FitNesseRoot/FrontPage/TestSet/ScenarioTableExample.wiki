@@ -31,5 +31,6 @@
 - Scenario Table 名称的优先级比Fixture Code高
 !| widget renders |
 | wiki text | html text |
-| this is ''italic'' text | this is <i>italic</i> text | italic widget |
-| this is '''bold''' text | this is <b>bold</b> text | bold widget |
+| this is ''italic'' text | this is <i>italic</i> text |
+| this is '''bold''' text | this is <b>bold</b> text |
+| there have ''italic'' text and '''bold''' text | there have <i>italic</i> text and <b>bold</b> text |

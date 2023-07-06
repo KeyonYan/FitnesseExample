@@ -1,0 +1,20 @@
+---
+Test
+---
+<test page>
+
+!1 Dynamic Decision Table Example
+- 将列标题作为参数传递给FixtureCode
+- 只有一个为所有列调用的方法，即
+- 第一个单元格必须以ddt:或dynamic decision:作为前缀
+
+- $ total? 中间要加空格？
+
+|import|
+|example|
+
+!| ddt: add up change |
+| # description | 1c | 5c | 10c | 25c | 50c | $1 | total cents? | $ total? |
+| some simple addition | 2 | 2 | 4 | 0 | 0 | 0 | 52 | 0.52 |
+| save the total cents in a symbol | 56 | 0 | 0 | 0 | 1 | 20 | $totalCents= | 21.06 |
+| now use the total cents that were stored | $totalCents | 0 | 0 | 0 | 0 | 10 | 3106 | ~=31.1 | An example for ValueComparisons |

@@ -1,0 +1,43 @@
+---
+Test
+---
+<test page>
+
+!1 Decision Table Example
+- 要求每个列都要定义一个方法，即setValue1、setValue2、add、subtract、divide、multiply
+
+|import|
+|example|
+
+!| Calculator|
+|value1 |value2 |add?|
+|3      |5      |8   |
+|2      |3      |5   |
+|6      |3      |9   |
+|5      |2      |7   |
+
+!| Calculator   |
+|value1|value2|subtract?|
+|0     |5     |-5       |
+|0     |0     |0        |
+|6     |1     |5        |
+|5     |2     |3        |
+
+!| Calculator |
+|value1|value2|divide?|
+|0     |5     |0      |
+|0     |1     |0      |
+|2     |1     |2      |
+|5     |2     |2      |
+
+!| Calculator   |
+|value1|value2|multiply?|
+|0     |5     |0        |
+|0     |0     |0        |
+|2     |1     |2        |
+|5     |2     |10       |
+
+
+
+
+

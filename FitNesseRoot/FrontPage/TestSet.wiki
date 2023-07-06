@@ -1,0 +1,10 @@
+---
+Suite
+Test: no
+---
+!1 Test suite ${PAGE_NAME}
+!contents -R2 -g -p -f -h
+
+!define TEST_SYSTEM {slim}
+
+!path D:\Project\FitnesseExample\target\classes\

@@ -1,0 +1,29 @@
+---
+Test
+---
+<test page>
+
+!1 Script Table Example
+- 第一行script表示是Script Table，后面加Fixture的类名和构造方法的参数值
+- 每一行都是脚本中的一个指令
+- 第一个指令写法是插入函数调用，第二个指令写法是顺序参数处理函数调用
+- 如果一个函数返回布尔值，则行中单独的函数将变为红色或绿色。否则，它将保持无色。
+- 如果check位于行的第一个单元格中，则函数调用紧随其后。表的最后一个单元格是我们期望与函数实际返回的内容匹配的表达式。
+- 如果check not位于行的第一个单元格中，则函数调用紧随其后。表的最后一个单元格是我们期望与函数实际返回的内容不匹配的表达式。
+- 如果reject在第一个单元格中，那么它后面应该跟一个函数，该函数应该为绿色返回布尔值 false，为红色返回 true。
+- 如果note或#开头或*开头或空白位于第一个单元格中，则该行中的所有其他单元格将被忽略。
+
+|import|
+|example|
+
+| script | login dialog driver | Bob | xyzzy |
+| login with username | Bob | and password | xyzzy |
+| login with username and password; | Bob | xyzzy |
+| check | login message | Bob logged in. |
+| reject | login with username | Bob | and password | bad password |
+| check | login message | Bob not logged in. |
+| check not | login message | Bob logged in. |
+| ensure | login with username | Bob | and password | xyzzy |
+| note | this is a comment |
+| show | number of login attempts |
+| $symbol= | login message |

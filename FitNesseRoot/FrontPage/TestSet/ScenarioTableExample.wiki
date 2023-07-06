@@ -1,0 +1,35 @@
+<test page>
+
+!1 Scenario Table Example
+- Scenario Table 是可以从其他表调用的表，即Script Table和Decision Table
+- 格式与Script Table相同
+- 表体通过前缀@使用参数，参数必须是驼峰大小写命名方式，
+- Arguments that share a common root string can use optional braces to force the correct evaluation of the full name of the argument. Thus, if you have arguments job and job code, you can use @{jobCode} to make sure you get the argument with the longer name.
+
+|import|
+|example|
+
+!2 声明一个 Scenario Table
+!3 写法1
+!| scenario | widget | wikiText | renders | htmlText |
+| create page | WidgetPage | with content | @wikiText |
+| check | request page | WidgetPage | 200 |
+| ensure | content matches | @htmlText |
+| show | content |
+
+| script | page driver |
+
+!3 写法2
+- 每个下划线表示一个参数。参数在后面单元格中以逗号分隔的列表中命名。
+!| scenario | widget _ renders _ | wikiText,htmlText |
+| create page | WidgetPage | with content | @wikiText |
+| check | request page | WidgetPage | 200 |
+| ensure | content matches | @htmlText |
+| show | content |
+
+!2 从Decision Table 中调用 Scenario Table
+- Scenario Table 名称的优先级比Fixture Code高
+!| widget renders |
+| wiki text | html text |
+| this is ''italic'' text | this is <i>italic</i> text | italic widget |
+| this is '''bold''' text | this is <b>bold</b> text | bold widget |

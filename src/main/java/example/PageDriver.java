@@ -1,7 +1,5 @@
 package example;
 
-import fitnesse.html.HtmlUtil;
-
 import java.util.HashMap;
 
 public class PageDriver {

@@ -1,12 +1,13 @@
 <test page>
 
-1. 在需要DEBUG的Test Page中定义静态变量COMMAND_PATTERN，显式定义debug的端口号9002
-!define COMMAND_PATTERN {java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9002 -cp %p %m}
+1. 在需要DEBUG的Test Page中定义静态变量REMOTE_DEBUG_COMMAND，显式定义debug的端口号9001
+!define REMOTE_DEBUG_COMMAND {java  -Dfile.encoding=utf-8 -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9001 -cp %p %m}
+!define COMMAND_PATTERN {java -Dfile.encoding=utf-8 -cp %p %m}
 
-2. 在IDE中配置Remote JVM DEBUG，指定需要远程DEBUG的端口号9002
+2. 在IDE中配置Remote JVM DEBUG，指定需要远程DEBUG的端口号9001
 
 3. 尝试DEBUG一个案例：
-    3.1. 当前Test Page 中点击Test，等待远程DEBUG连接
+    3.1. 当前Test Page 中点击Tools/Remote Debug，等待远程DEBUG连接
     3.2. IDE 打断点
     3.3. IDE 中启动DEBUG
 

@@ -13,3 +13,4 @@ Content:
 - Dynamic Decision Table Example
 - Script Table Example
 - Scenario Table Example
+- Debug Example (How to remote debug)

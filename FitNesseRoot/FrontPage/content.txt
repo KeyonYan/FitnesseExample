@@ -3,5 +3,5 @@
 # Here is a good place to add your first page (WikiWord). For example, MyTopLevelApplicationPage
 
 |'''Suite Page'''                                                      |
-|[[Test Set][http://localhost:8089/FrontPage.TestSet]]|
+|[[Test Set][.FrontPage.TestSet]]|
 !note Release ${FITNESSE_VERSION}
